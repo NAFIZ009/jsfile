@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style></style>
+  <body>
+    <!-- <h1 id="heading">Delete Me</h1> -->
+    <input type="text" placeholder="type Comment" id="inputfild" />
+    <button id="btn">Add Comment</button>
+    <button id="remove">Delete ALL</button>
+    <br />
+    <div id="cmtbox">
+
+    </div>
+    <script>
+      // let Heading = document.getElementById("heading");
+      // // let parentElement = document.getElementById("cmtbox");
+      // // document.getElementById("btn").addEventListener("click",creatCommentElment);
+      // document
+      //   .getElementById("remove")
+      //   .addEventListener("click", function (event) {
+      //     Heading.remove();
+      //   });
+      // document
+      //   .getElementById("inputfild")
+      //   .addEventListener("keyup", function (event) {
+      //     if (event.target.value.toLowerCase() == "delete") {
+      //       document.getElementById("remove").removeAttribute("disabled");
+      //     } else {
+      //       document.getElementById("remove").setAttribute("disabled", true);
+      //     }
+      //   });
+      // // function creatCommentElment() {
+      // //   let newElement=document.createElement("div");
+      // //   let newPara = document.createElement("p");
+      // //   // let dltbtn  = document.createElement("button");
+      // //   // dltbtn.setAttribute("","dlt");
+      // //   // dltbtn.innerText = "Delete Comment";
+      // //   // newElement.appendChild(dltbtn);
+      // //   newPara.innerText=document.getElementById("inputfild").value;
+      // //   newElement.appendChild(newPara);
+      // //   document.getElementById("inputfild").value="";
+      // //   parentElement.appendChild(newElement);
+      // // }
+      // function dltbtnfun() {}
+      let cmt=document.getElementById("cmtbox");
+      document.getElementById("btn").addEventListener('click',function()  {
+      let p =document.createElement("p");
+      // p.setAttribute("id", "para");
+      let dbtn=document.createElement("button");
+      dbtn.innerText="delete";
+      p.innerText =document.getElementById("inputfild").value;
+      document.getElementById("cmtbox").appendChild(p);
+      p.appendChild(dbtn);
+      document.getElementById("inputfild").value="";
+      
+      for (const item of cmt.children) {
+      item.lastElementChild.addEventListener("click", function(e) {
+        e.target.parentElement.remove();
+      });
+    }
+    document.getElementById("remove").addEventListener("click", function(e) {
+      cmt.innerHTML="";
+    });
+    })
+    // document.getElementById("cmtbox").addEventListener("click", function(e) {
+    //     e.target.remove()
+    //   });
+    
+    // console.log(cmt.children);
+
+    </script>
+    <script src="p.js"></script>
+  </body>
+</html>
